@@ -1,29 +1,19 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const webpack = require('webpack')
+const isDevelopment = process.env.NODE_ENV !== 'production';
 
-module.exports = (env, argv) => {
-  const { mode } = argv
-
-  const additionalPlugins =
-    mode === 'production'
-      ? [] // Make JS smaller
-      : [new webpack.HotModuleReplacementPlugin()] // Enable hot module replacement
-
-  const additionalEntries =
-    mode === 'production'
-      ? []
-      : ['webpack-hot-middleware/client?http://localhost:8000']
+module.exports = () => {
 
   return {
-    mode,
+    mode: isDevelopment ? 'development' : 'production',
     output: {
       publicPath: '/'
     },
     entry: [
-      './src/client',
-      ...additionalEntries
+      './src/client'
     ],
     module: {
       rules: [
@@ -32,7 +22,10 @@ module.exports = (env, argv) => {
           test: /\.js$/,
           exclude: /node_modules/,
           use: {
-            loader: 'babel-loader'
+            loader: 'babel-loader',
+            options: {
+              plugins: [isDevelopment && require.resolve('react-refresh/babel')].filter(Boolean),
+            }
           }
         },
         {
@@ -48,7 +41,8 @@ module.exports = (env, argv) => {
       ]
     },
     plugins: [
-      // Skip the part where we would make a html template
+      isDevelopment && new webpack.HotModuleReplacementPlugin(),
+      isDevelopment && new ReactRefreshWebpackPlugin(),
       new HtmlWebpackPlugin({
         title: 'TODO app',
         template: path.resolve(__dirname, 'src/client/assets/index.html'),
@@ -59,8 +53,7 @@ module.exports = (env, argv) => {
       new MiniCssExtractPlugin({
         filename: '[name].css',
         chunkFilename: '[name]-[id].css'
-      }),
-      ...additionalPlugins
-    ]
+      })
+    ].filter(Boolean)
   }
 }
