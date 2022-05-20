@@ -6,8 +6,24 @@ services:
       context: ./
       dockerfile: config/dev.Dockerfile
     image: fullstack_todo_dev
+    depends_on:
+      - db
     volumes:
       - ./:/usr/src/app
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
     ports:
       - 3000:3000
     container_name: fullstack_todo_dev
+  db:
+    image: postgres:14.3
+    environment:
+      - PGDATA=/data
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - pg_data:/data
+    container_name: fullstack_todo_db
+
+volumes:
+  pg_data:
