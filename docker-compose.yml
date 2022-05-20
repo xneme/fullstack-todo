@@ -1,0 +1,13 @@
+version: '3.5'
+
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: config/dev.Dockerfile
+    image: fullstack_todo_dev
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - 3000:3000
+    container_name: fullstack_todo_dev
