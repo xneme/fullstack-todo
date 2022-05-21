@@ -17,8 +17,6 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 const initializeDatabaseConnection = async (attempt = 1) => {
   try {
     await sequelize.authenticate()
-    const pending = await migrator.pending()
-    console.log(pending)
     await migrator.up()
     return true
   } catch (e) {
