@@ -1,11 +1,11 @@
 import React from 'react'
 import TaskTable from './TaskTable'
-import TaskForm from './TaskForm'
+import AddTaskForm from './AddTaskForm'
 
 export default () => {
   return (
     <>
-      <TaskForm />
+      <AddTaskForm />
       <TaskTable />
     </>
   )

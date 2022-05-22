@@ -43,6 +43,12 @@ export default () => {
           Create
         </Button>
       </form>
+      <Button
+        variant="contained"
+        onClick={() => setActive()}
+      >
+        Cancel
+      </Button>
     </>
   )
 }
