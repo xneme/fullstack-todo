@@ -1,17 +1,11 @@
 import React from 'react'
 import TaskTable from './TaskTable'
-import { useGetTasksQuery } from './taskSlice'
+import TaskForm from './TaskForm'
 
 export default () => {
-  const { data, error, isLoading } = useGetTasksQuery()
-  if (isLoading) return (
-    <>
-      <div>STILL LOADING!</div>
-    </>
-  )
-
   return (
     <>
+      <TaskForm />
       <TaskTable />
     </>
   )
