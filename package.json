@@ -30,7 +30,7 @@
   },
   "scripts": {
     "dev": "docker-compose up",
-    "build": "webpack --mode=production",
+    "build": "cross-env NODE_ENV=production webpack",
     "start": "cross-env NODE_ENV=production node src/index.js",
     "start:dev": "cross-env NODE_ENV=development nodemon src/index.js"
   },
