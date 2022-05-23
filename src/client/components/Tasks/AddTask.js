@@ -19,13 +19,17 @@ export default () => {
   
   if (!active) return (
     <Grid item xs={3}>
-      <Button
-        color="primary"
-        variant="contained"
-        onClick={() => setActive(true)}
-      >
-        Add task
-      </Button>
+      <Card sx={{width: 480}} >
+        <CardActions sx={{ justifyContent: "center" }}>
+          <Button
+            color="primary"
+            variant="contained"
+            onClick={() => setActive(true)}
+          >
+            Add task
+          </Button>
+        </CardActions>
+      </Card>
     </Grid>
   )
   return (

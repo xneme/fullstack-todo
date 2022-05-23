@@ -13,6 +13,7 @@ export default () => {
       justify="center"
       style={{ minHeight: '100vh' }}
     >
+      <Grid item xs={3} />
       <AddTask />
       <TaskList />
     </Grid>
