@@ -22,5 +22,5 @@ jobs:
         with:
           push: true
           tags: xneme/${{ github.event.repository.name }}:latest
-          build-args: BASE_PATH=/todo
+          build-args: BASE_PATH=/todo/
          
