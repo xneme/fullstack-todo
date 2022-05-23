@@ -1,12 +1,20 @@
 import React from 'react'
-import TaskTable from './TaskTable'
-import AddTaskForm from './AddTaskForm'
+import TaskList from './TaskList'
+import AddTask from './AddTask'
+import Grid from '@mui/material/Grid'
 
 export default () => {
   return (
-    <>
-      <AddTaskForm />
-      <TaskTable />
-    </>
+    <Grid
+      container
+      spacing={1}
+      direction="column"
+      alignItems="center"
+      justify="center"
+      style={{ minHeight: '100vh' }}
+    >
+      <AddTask />
+      <TaskList />
+    </Grid>
   )
 }
