@@ -7,10 +7,12 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 
 module.exports = () => {
 
+  const BASE_PATH = process.env.BASE_PATH || '/'
+
   return {
     mode: isDevelopment ? 'development' : 'production',
     output: {
-      publicPath: '/'
+      publicPath: BASE_PATH
     },
     entry: [
       './src/client'
@@ -53,6 +55,9 @@ module.exports = () => {
       new MiniCssExtractPlugin({
         filename: '[name].css',
         chunkFilename: '[name]-[id].css'
+      }),
+      new webpack.DefinePlugin({
+        __BASE_PATH__: JSON.stringify(BASE_PATH)
       })
     ].filter(Boolean)
   }
