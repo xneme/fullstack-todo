@@ -14,7 +14,7 @@ export default ({ task, setEditing }) => {
 
 
   return (
-    <Card elevation={2} className="tasks-stack-item">
+    <Card elevation={2} className="task-card">
       <CardContent>
         <Typography gutterBottom variant="h5" component="div" style={{ textDecoration : task.completed ? 'line-through' : 'none' }}>
           {task.task}

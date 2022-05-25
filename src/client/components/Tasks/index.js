@@ -7,8 +7,8 @@ import Stack from '@mui/material/Grid'
 
 export default () => {
   return (
-    <div className="box-wrapper">
-      <Box className="tasks-box" sx={{maxWidth: 600, margin: 'auto'}}>
+    <div className="tasks-area">
+      <Box sx={{maxWidth: 600, margin: 'auto'}}>
         <Stack>
           <AddTask />
           <TaskList />

@@ -14,12 +14,13 @@ export default () => {
   const handleSubmit = () => {
     addTask({ task: taskText, details: detailsText, completed: false })
     setTaskText('')
+    setDetailsText('')
     setActive(false)
   }
   
   if (!active) return (
 
-      <Card elevation={2} className="tasks-stack-item">
+      <Card elevation={2} className="task-card">
         <CardActions>
           <Button
             color="primary"
@@ -34,7 +35,7 @@ export default () => {
  
   )
   return (
-      <Card elevation={2} className="tasks-stack-item">
+      <Card elevation={2} className="task-card">
         <CardContent>
           <form onSubmit={handleSubmit} >
             <TextField
@@ -53,7 +54,7 @@ export default () => {
               minRows='3'
               value={detailsText}
               onChange={(e) => setDetailsText(e.target.value)}
-              sx={{ width: "100%" }}
+              sx={{ width: "100%", marginTop: "10px" }}
             />
           </form>
         </CardContent>

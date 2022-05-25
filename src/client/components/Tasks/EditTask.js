@@ -18,7 +18,7 @@ export default ({ task, setEditing }) => {
   }
 
   return (
-    <Card elevation={3} className="tasks-stack-item">
+    <Card elevation={3} className="task-card">
       <CardContent>
         <form onSubmit={handleSubmit} >
           <TextField
@@ -27,18 +27,18 @@ export default ({ task, setEditing }) => {
             type="text"
             value={updatedTask.task}
             onChange={(e) => setUpdatedTask({ ...updatedTask, task: e.target.value })}
-            sx={{ width: "100%" }}
+            sx={{ width: "100%"}}
           />
           <TextField
-              multiline
-              id="details-input"
-              label="Details"
-              type="text"
-              minRows='3'
-              value={updatedTask.details}
-              onChange={(e) => setUpdatedTask({ ...updatedTask, details: e.target.value })}
-              sx={{ width: "100%" }}
-            />
+            multiline
+            id="details-input"
+            label="Details"
+            type="text"
+            minRows='3'
+            value={updatedTask.details}
+            onChange={(e) => setUpdatedTask({ ...updatedTask, details: e.target.value })}
+            sx={{ width: "100%", marginTop: "10px" }}
+          />
         </form>
       </CardContent>
       <CardActions>
