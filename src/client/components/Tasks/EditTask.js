@@ -6,8 +6,8 @@ import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import { useUpdateTaskMutation, useDeleteTaskMutation } from './taskSlice'
 
-export default ({ oldTask, setEditing }) => {
-  const [updatedTask, setUpdatedTask] = useState(oldTask)
+export default ({ task, setEditing }) => {
+  const [updatedTask, setUpdatedTask] = useState(task)
   const [updateTask, updateResult] = useUpdateTaskMutation()
   const [deleteTask, deleteResult] = useDeleteTaskMutation()
 
@@ -18,7 +18,7 @@ export default ({ oldTask, setEditing }) => {
   }
 
   return (
-    <Card sx={{width: 480}}>
+    <Card elevation={3} className="tasks-stack-item">
       <CardContent>
         <form onSubmit={handleSubmit} >
           <TextField
@@ -27,8 +27,16 @@ export default ({ oldTask, setEditing }) => {
             type="text"
             value={updatedTask.task}
             onChange={(e) => setUpdatedTask({ ...updatedTask, task: e.target.value })}
+            sx={{ width: "100%" }}
           />
-          
+          <TextField
+              multiline
+              id="details-input"
+              label="Details"
+              type="text"
+              minRows='3'
+              sx={{ width: "100%" }}
+            />
         </form>
       </CardContent>
       <CardActions>
@@ -43,7 +51,7 @@ export default ({ oldTask, setEditing }) => {
             Update
         </Button>
         <Button
-          onClick={() => deleteTask(oldTask)}
+          onClick={() => deleteTask(task)}
           color="error"
         >
           Delete

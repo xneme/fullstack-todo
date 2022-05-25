@@ -1,21 +1,19 @@
 import React from 'react'
 import TaskList from './TaskList'
 import AddTask from './AddTask'
-import Grid from '@mui/material/Grid'
+import Box from '@mui/material/Box'
+import Paper from '@mui/material/Paper'
+import Stack from '@mui/material/Grid'
 
 export default () => {
   return (
-    <Grid
-      container
-      spacing={1}
-      direction="column"
-      alignItems="center"
-      justify="center"
-      style={{ minHeight: '100vh' }}
-    >
-      <Grid item xs={3} />
-      <AddTask />
-      <TaskList />
-    </Grid>
+    <div className="box-wrapper">
+      <Box className="tasks-box" sx={{maxWidth: 600, margin: 'auto'}}>
+        <Stack>
+          <AddTask />
+          <TaskList />
+        </Stack>
+      </Box>
+    </div>
   )
 }

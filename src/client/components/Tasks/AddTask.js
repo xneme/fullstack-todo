@@ -1,40 +1,40 @@
 import React, { useState } from 'react'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
-import Grid from '@mui/material/Grid'
 import Card from '@mui/material/Card'
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions'
+import CardContent from '@mui/material/CardContent'
 import { useAddTaskMutation } from './taskSlice'
 
 export default () => {
   const [active, setActive] = useState(false)
   const [taskText, setTaskText] = useState('')
+  const [detailsText, setDetailsText] = useState('')
   const [addTask, result] = useAddTaskMutation()
   const handleSubmit = () => {
-    addTask({ task: taskText, completed: false })
+    addTask({ task: taskText, details: detailsText, completed: false })
     setTaskText('')
     setActive(false)
   }
   
   if (!active) return (
-    <Grid item xs={3}>
-      <Card sx={{width: 480}} >
-        <CardActions sx={{ justifyContent: "center" }}>
+
+      <Card elevation={2} className="tasks-stack-item">
+        <CardActions>
           <Button
             color="primary"
             variant="contained"
             onClick={() => setActive(true)}
+            id="add-button"
           >
             Add task
           </Button>
         </CardActions>
       </Card>
-    </Grid>
+ 
   )
   return (
-    <Grid item xs={3}>
-      <Card sx={{width: 480}} >
+      <Card elevation={2} className="tasks-stack-item">
         <CardContent>
           <form onSubmit={handleSubmit} >
             <TextField
@@ -43,6 +43,17 @@ export default () => {
               type="text"
               value={taskText}
               onChange={(e) => setTaskText(e.target.value)}
+              sx={{ width: "100%" }}
+            />
+            <TextField
+              multiline
+              id="details-input"
+              label="Details"
+              type="text"
+              minRows='3'
+              value={detailsText}
+              onChange={(e) => setDetailsText(e.target.value)}
+              sx={{ width: "100%" }}
             />
           </form>
         </CardContent>
@@ -50,11 +61,10 @@ export default () => {
           <Button onClick={() => setActive()}>
             Cancel
           </Button>
-          <Button onClick={() => handleSubmit()}>
+          <Button color="success" onClick={() => handleSubmit()}>
               Create
           </Button>
         </CardActions>
       </Card>
-    </Grid>
   )
 }

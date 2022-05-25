@@ -9,7 +9,7 @@ export default ({ task }) => {
   
   return (
   editing ?
-      <EditTask oldTask={task} setEditing={setEditing} />
+      <EditTask task={task} setEditing={setEditing} />
       :
       <ShowTask task={task} setEditing={setEditing} />
     )
