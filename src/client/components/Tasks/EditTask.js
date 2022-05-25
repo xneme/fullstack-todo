@@ -35,6 +35,8 @@ export default ({ task, setEditing }) => {
               label="Details"
               type="text"
               minRows='3'
+              value={updatedTask.details}
+              onChange={(e) => setUpdatedTask({ ...updatedTask, details: e.target.value })}
               sx={{ width: "100%" }}
             />
         </form>

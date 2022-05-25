@@ -19,6 +19,9 @@ export default ({ task, setEditing }) => {
         <Typography gutterBottom variant="h5" component="div" style={{ textDecoration : task.completed ? 'line-through' : 'none' }}>
           {task.task}
         </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {task.details}
+        </Typography>
       </CardContent>
       <CardActions>
         <Button
