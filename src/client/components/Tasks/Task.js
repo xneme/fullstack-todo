@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-
 import EditTask from './EditTask'
 import ShowTask from './ShowTask'
 
 
-export default ({ task }) => {
+const Task = ({ task }) => {
   const [editing, setEditing] = useState(false)
   
   return (
@@ -15,3 +14,5 @@ export default ({ task }) => {
     )
   
 }
+
+export default Task

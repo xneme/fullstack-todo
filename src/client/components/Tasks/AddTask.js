@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
+import TextField from '@mui/material/TextField'
 import { useAddTaskMutation } from './taskSlice'
 
-export default () => {
+const AddTask = () => {
   const [active, setActive] = useState(false)
   const [taskText, setTaskText] = useState('')
   const [detailsText, setDetailsText] = useState('')
@@ -69,3 +69,5 @@ export default () => {
       </Card>
   )
 }
+
+export default AddTask

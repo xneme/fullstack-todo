@@ -1,11 +1,10 @@
 import React from 'react'
-import TaskList from './TaskList'
-import AddTask from './AddTask'
 import Box from '@mui/material/Box'
-import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Grid'
+import AddTask from './AddTask'
+import TaskList from './TaskList'
 
-export default () => {
+const Tasks = () => {
   return (
     <div className="tasks-area">
       <Box sx={{maxWidth: 600, margin: 'auto'}}>
@@ -17,3 +16,5 @@ export default () => {
     </div>
   )
 }
+
+export default Tasks

@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import { useUpdateTaskMutation } from './taskSlice'
 
 
-export default ({ task, setEditing }) => {
+const ShowTask = ({ task, setEditing }) => {
   const [updateTask, updateResult] = useUpdateTaskMutation()
   
   const completeTask = () => updateTask({ ...task, completed: true })
@@ -42,4 +42,6 @@ export default ({ task, setEditing }) => {
     </Card>
   )
 
- }
+}
+ 
+export default ShowTask

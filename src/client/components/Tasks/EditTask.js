@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
+import Button from '@mui/material/Button'
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import TextField from '@mui/material/TextField'
-import Button from '@mui/material/Button'
 import { useUpdateTaskMutation, useDeleteTaskMutation } from './taskSlice'
 
-export default ({ task, setEditing }) => {
+const EditTask = ({ task, setEditing }) => {
   const [updatedTask, setUpdatedTask] = useState(task)
   const [updateTask, updateResult] = useUpdateTaskMutation()
   const [deleteTask, deleteResult] = useDeleteTaskMutation()
@@ -63,3 +63,5 @@ export default ({ task, setEditing }) => {
     </Card>
   )
 }
+
+export default EditTask

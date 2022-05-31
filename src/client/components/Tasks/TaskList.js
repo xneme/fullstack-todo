@@ -8,10 +8,9 @@ const sortByCompleted = (a, b) => {
   return -1
 }
 
-export default () => {  
+const TaskList = () => {  
   const { data, error, isLoading } = useGetTasksQuery()
   if (isLoading) return null
-  console.log(data)
   return (
     <>
       {[...data]                                                      // Make copy of the array
@@ -23,3 +22,5 @@ export default () => {
     </>
   )
 }
+
+export default TaskList

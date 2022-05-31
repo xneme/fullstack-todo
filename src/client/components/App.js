@@ -1,9 +1,9 @@
 import React from 'react'
-import Tasks from './Tasks'
 import Header from './Header'
+import Tasks from './Tasks'
 import './App.scss'
 
-export default () => {
+const App = () => {
   return (
     <>
       <Header />
@@ -12,3 +12,4 @@ export default () => {
   )
 }
 
+export default App
